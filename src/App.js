@@ -60,7 +60,7 @@ function App() {
         <ol>
           {
             cardsFromType.map((card, cardIndex) =>  
-              <li onClick={prepareToRemoveACard.bind(null, typeIndex, cardIndex)} key={card}>
+              <li disabled={!canRemoveCard(typeIndex) && stage < 2} onClick={prepareToRemoveACard.bind(null, typeIndex, cardIndex)} key={card}>
                 {stage < 2 ? <input type="checkbox" readOnly checked={cardsPreparedToRemove.get(typeIndex).has(cardIndex)}></input> : ""}
                 {card}
               </li>

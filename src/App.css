@@ -1,3 +1,29 @@
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #081700;
+  color: #fff;
+}
+
 .App {
   padding: 10px;
+}
+
+.App-header {
+  font-weight: bold;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+li {
+  cursor: pointer;
+  line-height: 14px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+li[disabled] {
+  cursor: default;
 }
