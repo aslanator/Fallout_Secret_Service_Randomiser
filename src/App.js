@@ -1,7 +1,7 @@
 import './App.css';
 import Cards from './Cards';
 import { useEffect, useState } from 'react';
-import { CARDS } from './constants';
+import { CARDS, CARD_NAMES } from './constants';
 import Controls from './Controls';
 
 const cards = new Cards;
@@ -56,7 +56,10 @@ function App() {
   function rerenderList() {
     setCardList(cards.pickedCards.map((cardsFromType, typeIndex) =>
       <div key={typeIndex}>
-        {stage === 0 ? <div>Необходимо удалить {cards.typeRemove[typeIndex]}</div> : ''}
+        <div>
+          {CARD_NAMES[typeIndex]}
+          {stage === 0 ? <span> Необходимо удалить {cards.typeRemove[typeIndex]}</span> : ''}
+        </div>
         <ol>
           {
             cardsFromType.map((card, cardIndex) =>  

@@ -1,5 +1,5 @@
 import {CARDS} from './constants';
-import shuffle from './shuffle';
+import shuffle from 'shuffle-array';
 
 export default class Cards {
 
