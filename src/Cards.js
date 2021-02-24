@@ -47,4 +47,9 @@ export default class Cards {
     _pickRandomFromArray(array, count = 1) {
         return shuffle(array).splice(0, count);
     }
+
+    restoreFromObject(cards) {
+        this.cardTypes = cards.cardTypes;
+        this.pickedCards = cards.pickedCards;
+    }
 }

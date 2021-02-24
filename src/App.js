@@ -3,18 +3,34 @@ import Cards from './Cards';
 import { useEffect, useState } from 'react';
 import { CARDS, CARD_NAMES } from './constants';
 import Controls from './Controls';
+import {ExpirableLocalStorage} from './ExpirableLocalStorage';
 
 const cards = new Cards;
+const expirableLocalStorage = new ExpirableLocalStorage;
 
 function App() {
   const [cardList, setCardList] = useState([]);
+  const [time, setTime] = useState(null);
+  const [showTime, setShowTime] = useState(false);
   const [stage, setStage] = useState(0);
-  const [done, setDone] = useState(false);
   const [cardsPreparedToRemove, prepareToRemove] = useState(initialPrepareToRemove);
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
+    const data = expirableLocalStorage.get('data');
+    if(typeof data.cards !== 'undefined' && typeof data.time !== 'undefined' && typeof data.stage !== 'undefined') {
+      const data = expirableLocalStorage.get('data');
+      cards.restoreFromObject(data.cards);
+      setTime(new Date(data.time));
+      setStage(data.stage);
+    }
+    else {
       cards.rand();
-      rerenderList();
+      const newTime = new Date();
+      setTime(newTime);
+      expirableLocalStorage.set('data', {cards, time: newTime, stage: 0})
+    }
+    rerenderList();
   }, []);
 
   useEffect(() => {
@@ -26,6 +42,10 @@ function App() {
       setDone(isStage0Done());
     }
   }, [cardsPreparedToRemove])
+
+  useEffect(() => {
+    rerenderList();
+  }, [stage])
 
 
   function prepareToRemoveACard(typeIndex, cardIndex) {
@@ -97,8 +117,8 @@ function App() {
         cards.unpick(typeIndex, Array.from(cardsFromType.keys()));
       }
       setStage(1);
+      expirableLocalStorage.set('data', {cards, time, stage: 1})
       prepareToRemove(initialPrepareToRemove());
-      rerenderList();
   }
 
   function onStage1Change() {
@@ -108,8 +128,8 @@ function App() {
       }
     }
     setStage(2);
+    expirableLocalStorage.set('data', {cards, time, stage: 2})
     prepareToRemove(initialPrepareToRemove());
-    rerenderList();
 }
 
 
@@ -128,11 +148,19 @@ function App() {
         {stage === 0 ? 'Удалите ненужные карты' : ''}
         {stage === 1 ? 'Можете заменить одну карту, на случайную того-же типа' : ''}
         {stage === 2 ? 'Готово' : ''}
+        <button onClick={() => setShowTime(true)}>
+          Время
+        </button>
       </header>
       <div>
         {cardList}
       </div>
-      <Controls stage={stage} onStageChange={onStageChange} done={done} />
+      <Controls stage={stage} onStageChange={onStageChange} done={done || stage > 0} />
+      <div className="modal" style={{display: showTime ? 'flex' : 'none'}} onClick={() => setShowTime(false)}>
+        <div className="modal-content">
+          {time ? time.toLocaleTimeString() : 'Время не установлено'}
+        </div>
+      </div>
     </div>
   );
 }
