@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Fallout_Secret_Service_Randomiser/static/css/main.6d083ab8.chunk.css",
-    "main.js": "/Fallout_Secret_Service_Randomiser/static/js/main.e4dfb24b.chunk.js",
-    "main.js.map": "/Fallout_Secret_Service_Randomiser/static/js/main.e4dfb24b.chunk.js.map",
+    "main.css": "/Fallout_Secret_Service_Randomiser/static/css/main.50cfc2d7.chunk.css",
+    "main.js": "/Fallout_Secret_Service_Randomiser/static/js/main.b553a96f.chunk.js",
+    "main.js.map": "/Fallout_Secret_Service_Randomiser/static/js/main.b553a96f.chunk.js.map",
     "runtime-main.js": "/Fallout_Secret_Service_Randomiser/static/js/runtime-main.fc8a421b.js",
     "runtime-main.js.map": "/Fallout_Secret_Service_Randomiser/static/js/runtime-main.fc8a421b.js.map",
     "static/js/2.82fcda3e.chunk.js": "/Fallout_Secret_Service_Randomiser/static/js/2.82fcda3e.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.2c8bc920.chunk.js": "/Fallout_Secret_Service_Randomiser/static/js/3.2c8bc920.chunk.js",
     "static/js/3.2c8bc920.chunk.js.map": "/Fallout_Secret_Service_Randomiser/static/js/3.2c8bc920.chunk.js.map",
     "index.html": "/Fallout_Secret_Service_Randomiser/index.html",
-    "static/css/main.6d083ab8.chunk.css.map": "/Fallout_Secret_Service_Randomiser/static/css/main.6d083ab8.chunk.css.map",
+    "static/css/main.50cfc2d7.chunk.css.map": "/Fallout_Secret_Service_Randomiser/static/css/main.50cfc2d7.chunk.css.map",
     "static/js/2.82fcda3e.chunk.js.LICENSE.txt": "/Fallout_Secret_Service_Randomiser/static/js/2.82fcda3e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fc8a421b.js",
     "static/js/2.82fcda3e.chunk.js",
-    "static/css/main.6d083ab8.chunk.css",
-    "static/js/main.e4dfb24b.chunk.js"
+    "static/css/main.50cfc2d7.chunk.css",
+    "static/js/main.b553a96f.chunk.js"
   ]
 }
