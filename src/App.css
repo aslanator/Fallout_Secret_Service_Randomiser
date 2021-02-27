@@ -44,3 +44,7 @@ li[disabled] {
   font-size: 40px;
   text-align: center;
 }
+
+.btn__fix-mode {
+    margin-top: 20px;
+}

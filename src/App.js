@@ -162,7 +162,7 @@ function App() {
         {cardList}
       </div>
       <Controls stage={stage} onStageChange={onStageChange} done={done || stage > 0} />
-      <button onClick={toggleFixMode}>{fixMode ? 'Fix mode on' : 'Fix mode off'}</button>
+      <button class="btn__fix-mode" onClick={toggleFixMode}>{fixMode ? 'Fix mode on' : 'Fix mode off'}</button>
       <div className="modal" style={{display: showTime ? 'flex' : 'none'}} onClick={() => setShowTime(false)}>
         <div className="modal-content">
           {time ? time.toLocaleTimeString() : 'Time is not set'}
