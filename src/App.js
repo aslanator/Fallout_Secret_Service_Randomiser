@@ -7,8 +7,10 @@ import {ExpirableLocalStorage} from './ExpirableLocalStorage';
 
 const cards = new Cards;
 const expirableLocalStorage = new ExpirableLocalStorage;
+const data = expirableLocalStorage.get('data');
 
 function App() {
+  const [fixMode, setFixMode] = useState(expirableLocalStorage.fixMode);
   const [cardList, setCardList] = useState([]);
   const [time, setTime] = useState(null);
   const [showTime, setShowTime] = useState(false);
@@ -17,7 +19,6 @@ function App() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    const data = expirableLocalStorage.get('data');
     if(typeof data.cards !== 'undefined' && typeof data.time !== 'undefined' && typeof data.stage !== 'undefined') {
       const data = expirableLocalStorage.get('data');
       cards.restoreFromObject(data.cards);
@@ -141,6 +142,11 @@ function App() {
       return cardsPreparedToRemove;
   }
 
+  function toggleFixMode() {
+    expirableLocalStorage.fixMode = !fixMode;
+    setFixMode(!fixMode);
+  }
+
 
   return (
     <div className="App">
@@ -156,9 +162,10 @@ function App() {
         {cardList}
       </div>
       <Controls stage={stage} onStageChange={onStageChange} done={done || stage > 0} />
+      <button onClick={toggleFixMode}>{fixMode ? 'Fix mode on' : 'Fix mode off'}</button>
       <div className="modal" style={{display: showTime ? 'flex' : 'none'}} onClick={() => setShowTime(false)}>
         <div className="modal-content">
-          {time ? time.toLocaleTimeString() : 'Время не установлено'}
+          {time ? time.toLocaleTimeString() : 'Time is not set'}
         </div>
       </div>
     </div>
