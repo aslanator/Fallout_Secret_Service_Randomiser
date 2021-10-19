@@ -1,16 +1,13 @@
-import {CARDS} from './constants';
+import {CARDS, CARDS_IN_GROUP, CARDS_REMOVE_FROM_GROUP, CARD_GROUP_HINTS} from './constants';
 import shuffle from 'shuffle-array';
 
 export default class Cards {
 
     constructor() {
-        const splitRegExp = new RegExp('\\d\\. ');
-        this.typeCount = [
-            5, 4, 3, 2
-        ];
-        this.typeRemove = [
-            1, 2, 2, 1
-        ];
+        const splitRegExp = new RegExp('\\d+\\. ');
+        this.typeCount = CARDS_IN_GROUP;
+        this.typeRemove = CARDS_REMOVE_FROM_GROUP;
+        this.hints = CARD_GROUP_HINTS;
         this.cardTypes = CARDS.map(cards => cards.replace(/\n/g, ' ').split(splitRegExp).map(item => item.trim()).slice(1));
         this.pickedCards = [];
     }

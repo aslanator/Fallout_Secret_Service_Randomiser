@@ -48,3 +48,7 @@ li[disabled] {
 .btn__fix-mode {
     margin-top: 20px;
 }
+
+.points {
+  color: #83d559;
+}

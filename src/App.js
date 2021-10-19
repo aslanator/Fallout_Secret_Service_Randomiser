@@ -1,12 +1,13 @@
 import './App.css';
 import Cards from './Cards';
 import { useEffect, useState } from 'react';
-import { CARDS, CARD_NAMES } from './constants';
+import { CARDS, CARD_NAMES, CARD_GROUP_HINTS, CARD_HINTS } from './constants';
 import Controls from './Controls';
 import {ExpirableLocalStorage} from './ExpirableLocalStorage';
+import { Hint } from './components/hint/Hint';
 
-const cards = new Cards;
-const expirableLocalStorage = new ExpirableLocalStorage;
+const cards = new Cards();
+const expirableLocalStorage = new ExpirableLocalStorage();
 const data = expirableLocalStorage.get('data');
 
 function App() {
@@ -60,7 +61,7 @@ function App() {
   }
  
   function canRemoveCard(typeIndex) {
-      if(stage == 0) {
+      if(stage === 0) {
         return cards.typeRemove[typeIndex] > cardsPreparedToRemove.get(typeIndex).size;
       }
       else if(stage === 1) {
@@ -80,13 +81,17 @@ function App() {
         <div>
           {CARD_NAMES[typeIndex]}
           {stage === 0 ? <span> Необходимо удалить {cards.typeRemove[typeIndex]}</span> : ''}
+          {CARD_GROUP_HINTS[typeIndex] && <span style={{paddingLeft: '5px'}}><Hint message={CARD_GROUP_HINTS[typeIndex]} /></span>}
         </div>
         <ol>
           {
             cardsFromType.map((card, cardIndex) =>  
-              <li disabled={!canRemoveCard(typeIndex) && stage < 2} onClick={prepareToRemoveACard.bind(null, typeIndex, cardIndex)} key={card}>
-                {stage < 2 ? <input type="checkbox" readOnly checked={cardsPreparedToRemove.get(typeIndex).has(cardIndex)}></input> : ""}
-                {card}
+              <li disabled={!canRemoveCard(typeIndex) && stage < 2} >
+                {CARD_HINTS[card] && <Hint message={CARD_HINTS[card]} />}
+                <span onClick={prepareToRemoveACard.bind(null, typeIndex, cardIndex)} key={card}>
+                  {stage < 2 ? <input type="checkbox" readOnly checked={cardsPreparedToRemove.get(typeIndex).has(cardIndex)}></input> : ""}
+                  <span dangerouslySetInnerHTML={{__html: card}} />
+                </span>
               </li>
             )
           }
@@ -137,7 +142,7 @@ function App() {
   function initialPrepareToRemove() {
     const cardsPreparedToRemove = new Map();
       for(const index in CARDS) {
-          cardsPreparedToRemove.set(Number(index), new Map);
+          cardsPreparedToRemove.set(Number(index), new Map());
       }
       return cardsPreparedToRemove;
   }

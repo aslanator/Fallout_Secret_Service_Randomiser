@@ -1,67 +1,129 @@
-export const ZATAN = `1. Perform one successful „Computers" test.
-2. Kill one enemy model.
-3. Perform one successful "Lockpick" test.
-4. Wound two enemy models.
-5. Perform one successful "Search" test.
-6. Grab and hold the 1 "item" until the end of the game.
-7. Ensure that you have one model in the target zone.
-8. Wound the enemy leader.
-9. Perform one successful "Presence" test`;
+export const ZATAN = `1. Выполнить один успешный Computers/
+Presence тест.
+2. Убить одну вражескую модель.
+3. Выполнить один успешный Lockpick/
+Search тест.
+4. Нанести ранения двум вражеским
+моделям.
+5. Выполнить один успешный Search/
+Presence тест.
+6. Захватить и удерживать 1 Предмет до
+конца игры.
+7. Иметь на конец игры хотя бы одну модель
+в целевой зоне.
+8. Нанести ранения вражескому лидеру.
+9. Выполнить один успешный Presence/
+Lockpick тест.
+10. Выполнить один успешный
+Computers/найти 2 пустых точки.`;
+
 
 export const RADIATION = `
-1. Perform three successful "Expertise" tests
-of any type or two successful "Expertise"
-tests of the same type.
-2. Kill more models than your
-enemy.
-3. Kill the enemy model that cost
-most caps.
-4. Grab and hold the 2 "item" until the end
-of the game.
-5. At least one of your models should be
-in the enemy deployment zone at the
-end of the game.
-6. Ensure that you have more models in the
-target zone than your enemy.
-7. Select one of your models(not leader), it
-mustn't be wounded by an enemy untill the
-end of a game.
+1. Выполнить 3 успешных "Expertise" теста
+любого типа или два успешных "Expertise"
+теста одного типа.
+2. Убить самую дорогую модель противника,
+или больше половины моделей (от стартового
+значения) армии противника.
+3. Захватить и удерживать 2 предмета до конца
+игры.
+4. Хотя бы одна ваша модель должна находится
+в зоне расстановки противника на конец игры.
+5. Вы должны иметь столько же или больше
+моделей, чем противник, в целевой зоне – на
+конец игры.
+6. Ваш лидер должен закончить игру в целевой
+зоне.
+7. После расстановки, секретно выберете 1 из
+своих моделей, не дороже 100 очков. Эта
+модель не должна быть убита на конец игры.
+Самостоятельное убийство – считается как
+убитая противником.
 `
 
 export const ENERGY = `
-1. Kill the enemy leader.
-2. Your leader should be in the enemy depl
-oyment zone at the end of the game.
-3. Collect twice as many caps as your
-enemy. Caps= cost of models.
-4. Kill twice as many models as your
-enemy.
-5. Ensure that you have at least one model in
-the target zone and your enemy has none.
-6. You leader mustn't be killed by enemy
-player until the end of the game
+1. Выберите модель противника ценой в 60+
+(если таковых нет, то самую дорогую) очков,
+вы должны её убить.
+<div class="points">- Если вы открываете этот квест, то за
+убийство модели получаете 4 ВП, если нет, то 2</div>
+2. Выполнить 5 успешных "Expertise" теста,
+или по 1 успешному тесту каждого типа
+<div class="points">- Если вы открываете этот квест, то получаете
+4 ВП, если нет, то 2</div>
+3. Больше 50% ваших живых моделей, должны
+закончить игру в целевой зоне. 
+<div class="points">- Если вы
+открываете этот квест, то получаете 4 ВП, если
+нет, то 2</div>
+4. Если вражеский лидер на конец игры мертв
+вы получаете 3 очка. Если на конец 4 хода
+вражеский лидер мертв, вы можете открыть эту
+миссию и получить дополнительно 1 очко.
+Если вы открываете эту миссию на начало
+расстановки :
+<div class="points">
+- Лидер мертв на конец игры – 2 очка
+- Лидер получил более половины повреждений
+от своего стартового ХП на конец 3 хода – 1
+очко.</div>
+5. "Выполнить 5 успешных "Expertise" теста,
+или по 1 успешному тесту каждого типа.
+<div class="points">
+- Если вы открываете этот квест, то получаете
+4 ВП, если нет, то 2</div>
+6. Захватите и контролируйте хотя бы один
+предмет, и не дайте противнику
+контролировать предметы на конец игры 4 ВП.
+<div class="points">
+- Если вы открываете этот квест:
+На конец игры вы должны контролировать
+больше предметов, чем противник - 3 ВП.</div>
+7. Если на конец игры вы имеете модель в зоне
+расстановки противника 2ВП, если модель
+является лидером, то 3ВП.
+<div class="points">
+- Если вы открываете это задание: Если на
+конец любого хода вы имеете 1 не вовлечённую
+(в ближний бой) модель в зоне расстановки
+противника – 3 ВП, если модель лидер, то 4
+ВП.</div>
 `
 
 export const CHEM = `
-1. Perform five successful "Expertise" tests or
-one successful "Expertise" test of each type.
-2. You must kill at least 80% of caps of your
-opponents forces.
-3. Grab and hold the 3 "item" until the end
-of the game.
-4. At the end of the game, the enemy should
-not control the "Item".
-5. At least 50% of your living models,
-including the leader, must finish the
-game in the enemy's deployment zone.
-6. Ensure that you have all
-your living models in the target zone
-and your enemy has none.
-7. More than 50% of your models
-must survive the battle.`;
+1. HOLD THE LINE
+2. DEFEND YOUR STASH
+3. EXTRACT THE INFORMATION
+4. RAIDERS
+5. SCRAPYARD
+6. Контроль территории
+`;
 
 export const CARDS = [
     ZATAN, RADIATION, ENERGY, CHEM
 ];
 
 export const CARD_NAMES = ['ZATAN', 'RADIATION', 'ENERGY', 'CHEM'];
+
+export const CARD_GROUP_HINTS = [
+    '1 успешный тест не может выполнить более 1 задачи',
+    '',
+    '',
+    `Оба игрока случайно тянут 2 задания, одно из них сбрасывают. Далее кидаем 2
+    черных куба, как при розыгрыше инициативы – победитель выбирает миссию
+    которая будет активной для обоих игроков! Красные задания можно
+    выполнять начиная с 2го хода, максимальное количество игровых очков
+    которое можно получить за эти задания – 6.`]
+
+export const CARDS_IN_GROUP = [6, 4, 3, 2];
+
+export const CARDS_REMOVE_FROM_GROUP = [2, 2, 1, 1];
+
+export const CARD_HINTS = {
+    'HOLD THE LINE' : '<img src="/Fallout_Secret_Service_Randomiser/hintImages/holdTheLine.jpg" alt="hint" />',
+    'DEFEND YOUR STASH' : '<img src="/Fallout_Secret_Service_Randomiser/hintImages/defendYourStash.jpg" alt="hint" />',
+    'EXTRACT THE INFORMATION' : '<img src="/Fallout_Secret_Service_Randomiser/hintImages/extractTheInformation.jpg" alt="hint" />',
+    'RAIDERS' : '<img src="/Fallout_Secret_Service_Randomiser/hintImages/raiders.jpg" alt="hint" />',
+    'SCRAPYARD' : '<img src="/Fallout_Secret_Service_Randomiser/hintImages/scrapyard.jpg" alt="hint" />',
+    'Контроль территории' : '<img src="/Fallout_Secret_Service_Randomiser/hintImages/control.jpg" alt="hint" />',
+}
