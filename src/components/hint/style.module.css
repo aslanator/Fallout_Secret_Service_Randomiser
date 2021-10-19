@@ -1,0 +1,33 @@
+.button {
+    display: inline-flex;
+    background-color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+}
+
+.hint {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:transparent;
+    border: 2px solid black;
+    color: black;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.hintElement {
+    padding: 10px;
+    background-color: white;
+    overflow: auto;
+}
+
+.hintElement img {
+    max-width: 100%;
+}
